@@ -13,10 +13,13 @@ for(var i=0;i<length;i++){
 // keyboard Press
 document.addEventListener("keydown",function(event){
     // event contains a whole lot of data about the key press
+    
     makeSound(event.key);
+    
 })
 
 function makeSound(key){
+    buttonAnime(key);
     switch(key){
         case 'w':
             var tom1=new Audio("sounds/tom-1.mp3");
@@ -51,6 +54,16 @@ function makeSound(key){
             break;
     }
     
+}
+
+function buttonAnime(currBtn){
+    var active = document.querySelector("."+currBtn);
+
+    active.classList.add("pressed");
+
+    setTimeout(function(){
+        active.classList.remove("pressed");
+    },100);
 }
 
 // var drum=new Audio("sounds/tom-1.mp3");
